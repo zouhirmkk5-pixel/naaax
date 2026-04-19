@@ -3,190 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoPrizes | Premium Rewards Platform</title>
+    <title>NeoPrizes | Rewards & Testimonials</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-        
-        :root {
-            --brand-primary: #3b82f6;
-            --brand-secondary: #8b5cf6;
-        }
-
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            scroll-behavior: smooth;
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero-mesh {
-            background-color: #ffffff;
-            background-image: radial-gradient(at 0% 0%, hsla(210,100%,93%,1) 0, transparent 50%), 
-                              radial-gradient(at 50% 0%, hsla(225,100%,93%,1) 0, transparent 50%), 
-                              radial-gradient(at 100% 0%, hsla(240,100%,93%,1) 0, transparent 50%);
-        }
-
-        .btn-gradient {
-            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn-gradient:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
-        }
-
-        /* Modal Animation */
-        .modal {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            display: none;
-        }
-        .modal.active {
-            display: flex;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .btn-gradient { background: linear-gradient(135deg, #3b82f6, #8b5cf6); transition: all 0.3s ease; }
+        .btn-gradient:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5); }
+        .reward-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reward-card:hover { transform: translateY(-5px); border-color: #3b82f6; }
+        .modal { display: none; }
+        .modal.active { display: flex; }
     </style>
 </head>
-<body class="hero-mesh text-slate-900">
+<body class="bg-slate-50 text-slate-900">
 
-    <nav class="glass fixed w-full top-0 z-[100] border-b border-slate-200">
+    <nav class="fixed w-full top-0 z-[100] bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 btn-gradient rounded-xl flex items-center justify-center shadow-lg">
-                    <i class="fa-solid fa-bolt text-white"></i>
-                </div>
-                <span class="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
-                    NeoPrizes
-                </span>
-            </div>
-            
-            <div class="hidden md:flex space-x-10 font-semibold text-slate-600">
-                <a href="#how" class="hover:text-blue-600 transition">How it Works</a>
-                <a href="#rewards" class="hover:text-blue-600 transition">Rewards</a>
-                <a href="#faq" class="hover:text-blue-600 transition">FAQ</a>
-            </div>
-
-            <div class="flex items-center gap-4">
-                <button onclick="toggleModal('loginModal')" class="hidden sm:block font-bold text-slate-700 hover:text-blue-600 transition">Login</button>
-                <button onclick="toggleModal('signupModal')" class="btn-gradient text-white px-7 py-3 rounded-2xl font-bold shadow-md">
-                    Get Started
-                </button>
+            <span class="text-2xl font-extrabold text-blue-600">NeoPrizes</span>
+            <div class="flex gap-4">
+                <button onclick="toggleModal('authModal')" class="font-bold text-slate-600 px-4">Login</button>
+                <button onclick="toggleModal('authModal')" class="btn-gradient text-white px-6 py-2.5 rounded-xl font-bold shadow-lg">Get Started</button>
             </div>
         </div>
     </nav>
 
-    <section class="pt-40 pb-20 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 px-4 py-2 rounded-full text-blue-700 text-sm font-bold mb-8">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                Live: 1,240 users earning right now
+    <section id="rewards" class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-4xl font-extrabold tracking-tight mb-4">Available Rewards</h2>
+            <p class="text-slate-500 text-lg">Exchange your points for these premium gift cards.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="reward-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-10 mb-6" alt="PayPal">
+                <h3 class="text-xl font-bold mb-1">PayPal $5 USD</h3>
+                <p class="text-blue-600 font-extrabold text-lg mb-6">500 Points</p>
+                <button onclick="toggleModal('authModal')" class="w-full py-3 rounded-xl bg-slate-100 font-bold hover:bg-blue-600 hover:text-white transition">Redeem</button>
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-tight">
-                The Smartest Way to <br/>
-                <span class="text-blue-600">Earn Online Rewards</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Join 50,000+ members earning gift cards and cash daily by completing simple offers and surveys.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button onclick="toggleModal('signupModal')" class="btn-gradient text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl">
-                    Claim Your First Reward
-                </button>
+
+            <div class="reward-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg" class="h-10 mb-6" alt="Walmart">
+                <h3 class="text-xl font-bold mb-1">$5 Walmart Gift Card</h3>
+                <p class="text-blue-600 font-extrabold text-lg mb-6">500 Points</p>
+                <button onclick="toggleModal('authModal')" class="w-full py-3 rounded-xl bg-slate-100 font-bold hover:bg-blue-600 hover:text-white transition">Redeem</button>
+            </div>
+
+            <div class="reward-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-10 mb-6" alt="PayPal">
+                <h3 class="text-xl font-bold mb-1">PayPal $10 USD</h3>
+                <p class="text-blue-600 font-extrabold text-lg mb-6">1,000 Points</p>
+                <button onclick="toggleModal('authModal')" class="w-full py-3 rounded-xl bg-slate-100 font-bold hover:bg-blue-600 hover:text-white transition">Redeem</button>
+            </div>
+
+            <div class="reward-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center">
+                <i class="fa-solid fa-cube text-4xl text-slate-800 mb-6"></i>
+                <h3 class="text-xl font-bold mb-1">Roblox $10 Gift Card</h3>
+                <p class="text-blue-600 font-extrabold text-lg mb-6">1,000 Points</p>
+                <button onclick="toggleModal('authModal')" class="w-full py-3 rounded-xl bg-slate-100 font-bold hover:bg-blue-600 hover:text-white transition">Redeem</button>
+            </div>
+
+            <div class="reward-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg" class="h-10 mb-6" alt="Walmart">
+                <h3 class="text-xl font-bold mb-1">$10 Walmart Gift Card</h3>
+                <p class="text-blue-600 font-extrabold text-lg mb-6">1,000 Points</p>
+                <button onclick="toggleModal('authModal')" class="w-full py-3 rounded-xl bg-slate-100 font-bold hover:bg-blue-600 hover:text-white transition">Redeem</button>
+            </div>
+
+            <div class="reward-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center">
+                <i class="fa-solid fa-gamepad text-4xl text-purple-600 mb-6"></i>
+                <h3 class="text-xl font-bold mb-1">Fortnite 1000 V-Bucks</h3>
+                <p class="text-blue-600 font-extrabold text-lg mb-6">1,200 Points</p>
+                <button onclick="toggleModal('authModal')" class="w-full py-3 rounded-xl bg-slate-100 font-bold hover:bg-blue-600 hover:text-white transition">Redeem</button>
             </div>
         </div>
     </section>
 
-    <section id="rewards" class="py-24 px-6 bg-white/50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Popular Payouts</h2>
-                <p class="text-slate-500">Real rewards delivered within 24 hours.</p>
-            </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition-all group">
-                    <div class="h-16 flex items-center justify-center mb-6 grayscale group-hover:grayscale-0 transition">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-10">
+    <section class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">What Our Users Say</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 relative">
+                    <i class="fa-solid fa-quote-left text-blue-500 text-3xl mb-4 opacity-50"></i>
+                    <p class="text-lg leading-relaxed mb-8 italic">"NeoPrizes has been amazing for earning extra cash in my spare time!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center font-bold">JD</div>
+                        <div>
+                            <h4 class="font-bold">Jane D.</h4>
+                            <p class="text-sm text-slate-400">Member since 2024</p>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-center">$5.00 Cash</h3>
-                    <p class="text-center text-blue-600 text-sm font-bold mt-2">5,000 Pts</p>
                 </div>
+
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 relative">
+                    <i class="fa-solid fa-quote-left text-blue-500 text-3xl mb-4 opacity-50"></i>
+                    <p class="text-lg leading-relaxed mb-8 italic">"I've earned over $200 in gift cards in just a few months!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center font-bold">MS</div>
+                        <div>
+                            <h4 class="font-bold">Mark S.</h4>
+                            <p class="text-sm text-slate-400">Member since 2024</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 relative">
+                    <i class="fa-solid fa-quote-left text-blue-500 text-3xl mb-4 opacity-50"></i>
+                    <p class="text-lg leading-relaxed mb-8 italic">"Best rewards platform I've used. Highly recommend!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center font-bold">LT</div>
+                        <div>
+                            <h4 class="font-bold">Lisa T.</h4>
+                            <p class="text-sm text-slate-400">Member since 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div id="loginModal" class="modal fixed inset-0 z-[200] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+    <div id="authModal" class="modal fixed inset-0 z-[200] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
         <div class="bg-white w-full max-w-md rounded-3xl p-8 shadow-2xl relative">
-            <button onclick="toggleModal('loginModal')" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 text-xl">
+            <button onclick="toggleModal('authModal')" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 text-xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <h2 class="text-2xl font-extrabold mb-2">Welcome Back</h2>
-            <p class="text-slate-500 mb-8">Sign in to continue earning.</p>
+            <h2 class="text-2xl font-extrabold mb-2">Join NeoPrizes</h2>
+            <p class="text-slate-500 mb-8">Sign up to start earning points for rewards.</p>
             
-            <form onsubmit="event.preventDefault(); alert('Login logic goes here!');" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-bold mb-2">Email Address</label>
-                    <input type="email" placeholder="name@example.com" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none transition" required>
-                </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2">Password</label>
-                    <input type="password" placeholder="••••••••" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none transition" required>
-                </div>
-                <button type="submit" class="w-full btn-gradient text-white py-4 rounded-xl font-bold mt-4 shadow-lg">Sign In</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="signupModal" class="modal fixed inset-0 z-[200] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
-        <div class="bg-white w-full max-w-md rounded-3xl p-8 shadow-2xl relative">
-            <button onclick="toggleModal('signupModal')" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 text-xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h2 class="text-2xl font-extrabold mb-2">Create Account</h2>
-            <p class="text-slate-500 mb-8">Start earning in less than 60 seconds.</p>
-            
-            <form onsubmit="event.preventDefault(); alert('Sign up logic goes here!');" class="space-y-4">
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-bold mb-2">First Name</label>
-                        <input type="text" placeholder="John" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none" required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold mb-2">Last Name</label>
-                        <input type="text" placeholder="Doe" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none" required>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-sm font-bold mb-2">Email Address</label>
-                    <input type="email" placeholder="name@example.com" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none" required>
-                </div>
-                <button type="submit" class="w-full btn-gradient text-white py-4 rounded-xl font-bold mt-4 shadow-lg">Join NeoPrizes</button>
+            <form onsubmit="event.preventDefault(); alert('Account creation success! Redirecting...');" class="space-y-4">
+                <input type="email" placeholder="Email Address" class="w-full px-4 py-4 rounded-xl border border-slate-200 outline-none focus:border-blue-500" required>
+                <input type="password" placeholder="Password" class="w-full px-4 py-4 rounded-xl border border-slate-200 outline-none focus:border-blue-500" required>
+                <button type="submit" class="w-full btn-gradient text-white py-4 rounded-xl font-bold shadow-lg mt-4">Create Free Account</button>
             </form>
         </div>
     </div>
 
     <script>
-        // Modal Control Function
         function toggleModal(id) {
             const modal = document.getElementById(id);
-            if (modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
-            } else {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Disable scrolling when modal is open
-            }
+            modal.classList.toggle('active');
+            document.body.style.overflow = modal.classList.contains('active') ? 'hidden' : 'auto';
         }
 
-        // Close modal when clicking outside of the white box
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.classList.remove('active');
@@ -197,3 +157,4 @@
 
 </body>
 </html>
+
