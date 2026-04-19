@@ -3,233 +3,547 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoPrizes Pro Max | Premium Rewards</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Rewards Platform - Earn Cash & Gift Cards</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
-        
-        body { 
-            font-family: 'Space Grotesk', sans-serif; 
-            scroll-behavior: smooth;
-            background-color: #000000;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .text-gradient {
-            background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
 
-        .pro-card {
-            background: rgba(17, 24, 39, 0.7);
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-nav {
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-login {
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-login:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-signup {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-signup:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, #ffd89b, #c7e9fb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 2rem auto;
+            max-width: 900px;
+            border-radius: 20px;
+            flex-wrap: wrap;
         }
 
-        .pro-card:hover {
-            border-color: #60a5fa;
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(96, 165, 250, 0.3);
         }
 
-        .glass-nav {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(12px);
-            border-b: 1px solid rgba(255, 255, 255, 0.05);
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .btn-premium {
-            background: linear-gradient(135deg, #2563eb, #9333ea);
-            position: relative;
-            transition: all 0.3s ease;
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
         }
 
-        .btn-premium:hover {
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
-            transform: scale(1.03);
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        .modal {
-            display: none;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
         }
-        .modal.active { display: flex; }
 
-        /* FAQ Accordion Styling */
-        details summary::-webkit-details-marker { display: none; }
-        details[open] summary i { transform: rotate(45deg); }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .reward-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .reward-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .reward-points {
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 2rem;
+            color: #667eea;
+            opacity: 0.5;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            color: #1a1a2e;
+        }
+
+        .author-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem;
+            background: #f5f5f5;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #e8e8e8;
+        }
+
+        .faq-answer {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1rem;
+            max-height: 200px;
+        }
+
+        .footer-cta {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .stats {
+                gap: 1.5rem;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
-<body class="text-gray-200">
-
-    <nav class="fixed w-full top-0 z-[100] glass-nav">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl flex items-center justify-center btn-premium shadow-lg">
-                    <i class="fa-solid fa-bolt text-white text-lg"></i>
-                </div>
-                <span class="text-3xl font-bold tracking-tighter text-white">Neo<span class="text-blue-500">Prizes</span><span class="text-xs font-mono text-purple-400 ml-1">PRO</span></span>
-            </div>
-            <div class="flex items-center gap-6">
-                <button onclick="toggleModal()" class="font-bold text-gray-400 hover:text-white transition">Login</button>
-                <button onclick="toggleModal()" class="btn-premium text-white px-8 py-3.5 rounded-2xl font-bold text-lg shadow-2xl">
-                    Get Started
-                </button>
-            </div>
+<body>
+    <nav>
+        <div class="logo">RewardsHub</div>
+        <div class="nav-buttons">
+            <a href="#" class="btn-nav btn-login">Login</a>
+            <a href="#" class="btn-nav btn-signup">Sign Up</a>
         </div>
     </nav>
 
-    <section class="pt-40 pb-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6">Redeem <span class="text-gradient">Premium</span> Rewards</h1>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">Exchange your hard-earned points for digital currency, gift cards, and exclusive gaming credits.</p>
+    <div class="hero">
+        <h1>Turn Your Time Into <span class="highlight">Real Rewards</span></h1>
+        <p>Complete simple tasks, surveys, and offers to earn points. Redeem them for gift cards, cash, and exclusive rewards from top brands.</p>
+        <button class="btn-cta" onclick="alert('Sign up form would open here')">Get Started Now →</button>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-number">3,253+</div>
+            <div>Active Members</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">24,287+</div>
+            <div>Points Earned</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">6+</div>
+            <div>Rewards Redeemed</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Points</h3>
+                <p>Complete tasks and see your points credited instantly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Multiple Task Types</h3>
+                <p>Surveys, app installs, video watching, and exclusive offers.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Trusted</h3>
+                <p>Enterprise-grade security for your data protection.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎁</div>
+                <h3>Premium Rewards</h3>
+                <p>PayPal cash, Amazon cards, gaming credits, and more.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Referral Program</h3>
+                <p>Earn bonus points for every successful referral.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>Leaderboard & Bonuses</h3>
+                <p>Compete weekly and earn extra rewards.</p>
+            </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div class="pro-card p-10 rounded-3xl text-center group">
-                <div class="w-20 h-20 bg-blue-950/50 text-blue-400 rounded-3xl flex items-center justify-center mx-auto mb-8 text-4xl border border-blue-900 group-hover:border-blue-500 transition">
-                    <i class="fa-brands fa-paypal"></i>
-                </div>
-                <h3 class="font-bold text-2xl text-white mb-2">PayPal $5 USD</h3>
-                <p class="text-blue-400 font-bold text-xl mb-10">500 Points</p>
-                <button onclick="toggleModal()" class="w-full py-4 rounded-xl bg-gray-800 text-white font-bold hover:bg-blue-600 transition-all text-lg">Claim Now</button>
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Create Account</h3>
+                <p>Sign up for free in under a minute.</p>
             </div>
-
-            <div class="pro-card p-10 rounded-3xl text-center group">
-                <div class="w-20 h-20 bg-yellow-950/50 text-yellow-400 rounded-3xl flex items-center justify-center mx-auto mb-8 text-4xl border border-yellow-900 group-hover:border-yellow-500 transition">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-                <h3 class="font-bold text-2xl text-white mb-2">$5 Walmart Card</h3>
-                <p class="text-blue-400 font-bold text-xl mb-10">500 Points</p>
-                <button onclick="toggleModal()" class="w-full py-4 rounded-xl bg-gray-800 text-white font-bold hover:bg-blue-600 transition-all text-lg">Claim Now</button>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Complete Tasks</h3>
+                <p>Browse and complete tasks at your pace.</p>
             </div>
-
-            <div class="pro-card p-10 rounded-3xl text-center group">
-                <div class="w-20 h-20 bg-blue-950/50 text-blue-400 rounded-3xl flex items-center justify-center mx-auto mb-8 text-4xl border border-blue-900 group-hover:border-blue-500 transition">
-                    <i class="fa-brands fa-paypal"></i>
-                </div>
-                <h3 class="font-bold text-2xl text-white mb-2">PayPal $10 USD</h3>
-                <p class="text-blue-400 font-bold text-xl mb-10">1,000 Points</p>
-                <button onclick="toggleModal()" class="w-full py-4 rounded-xl bg-gray-800 text-white font-bold hover:bg-blue-600 transition-all text-lg">Claim Now</button>
-            </div>
-
-            <div class="pro-card p-10 rounded-3xl text-center group">
-                <div class="w-20 h-20 bg-gray-800 text-gray-300 rounded-3xl flex items-center justify-center mx-auto mb-8 text-4xl border border-gray-700 group-hover:border-white transition">
-                    <i class="fa-solid fa-cube"></i>
-                </div>
-                <h3 class="font-bold text-2xl text-white mb-2">Roblox $10 Card</h3>
-                <p class="text-blue-400 font-bold text-xl mb-10">1,000 Points</p>
-                <button onclick="toggleModal()" class="w-full py-4 rounded-xl bg-gray-800 text-white font-bold hover:bg-blue-600 transition-all text-lg">Claim Now</button>
-            </div>
-
-            <div class="pro-card p-10 rounded-3xl text-center group">
-                <div class="w-20 h-20 bg-yellow-950/50 text-yellow-400 rounded-3xl flex items-center justify-center mx-auto mb-8 text-4xl border border-yellow-900 group-hover:border-yellow-500 transition">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-                <h3 class="font-bold text-2xl text-white mb-2">$10 Walmart Card</h3>
-                <p class="text-blue-400 font-bold text-xl mb-10">1,000 Points</p>
-                <button onclick="toggleModal()" class="w-full py-4 rounded-xl bg-gray-800 text-white font-bold hover:bg-blue-600 transition-all text-lg">Claim Now</button>
-            </div>
-
-            <div class="pro-card p-10 rounded-3xl text-center group">
-                <div class="w-20 h-20 bg-purple-950/50 text-purple-400 rounded-3xl flex items-center justify-center mx-auto mb-8 text-4xl border border-purple-900 group-hover:border-purple-500 transition">
-                    <i class="fa-solid fa-gamepad"></i>
-                </div>
-                <h3 class="font-bold text-2xl text-white mb-2">1000 V-Bucks</h3>
-                <p class="text-blue-400 font-bold text-xl mb-10">1,200 Points</p>
-                <button onclick="toggleModal()" class="w-full py-4 rounded-xl bg-gray-800 text-white font-bold hover:bg-blue-600 transition-all text-lg">Claim Now</button>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Redeem Rewards</h3>
+                <p>Exchange points for gift cards or cash.</p>
             </div>
         </div>
-    </section>
 
-    <section class="py-32 bg-[#080808] border-y border-gray-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold tracking-tight text-center text-white mb-20">Verified Community Feedback</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                
-                <div class="pro-card p-10 rounded-3xl relative">
-                    <i class="fa-solid fa-quote-left text-blue-600 text-4xl absolute -top-5 left-8"></i>
-                    <p class="italic text-gray-300 text-lg leading-relaxed mb-10 mt-4">"NeoPrizes has been amazing for earning extra cash in my spare time!"</p>
-                    <div class="flex items-center gap-4 pt-6 border-t border-gray-800">
-                        <div class="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center font-bold text-xl text-white shadow-lg">JD</div>
-                        <div><p class="font-bold text-lg text-white">Jane D.</p><p class="text-sm text-gray-500">Member since 2024</p></div>
+        <h2 class="section-title">Amazing Rewards Await</h2>
+        <div class="rewards-grid">
+            <div class="reward-card" onclick="alert('Redeem: PayPal $5 USD')">
+                <h3>PayPal $5 USD</h3>
+                <div class="reward-points">500 points</div>
+            </div>
+            <div class="reward-card" onclick="alert('Redeem: $5 Walmart Gift Card')">
+                <h3>$5 Walmart Gift Card</h3>
+                <div class="reward-points">500 points</div>
+            </div>
+            <div class="reward-card" onclick="alert('Redeem: PayPal $10 USD')">
+                <h3>PayPal $10 USD</h3>
+                <div class="reward-points">1,000 points</div>
+            </div>
+            <div class="reward-card" onclick="alert('Redeem: Roblox $10 USD Gift Card')">
+                <h3>Roblox $10 USD Gift Card</h3>
+                <div class="reward-points">1,000 points</div>
+            </div>
+            <div class="reward-card" onclick="alert('Redeem: $10 Walmart Gift Card')">
+                <h3>$10 Walmart Gift Card</h3>
+                <div class="reward-points">1,000 points</div>
+            </div>
+            <div class="reward-card" onclick="alert('Redeem: Fortnite 1000 VBucks - Gift Card')">
+                <h3>Fortnite 1000 VBucks - Gift Card</h3>
+                <div class="reward-points">1,200 points</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">What Our Users Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    NeoPrizes has been amazing for earning extra cash in my spare time!
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JD</div>
+                    <div class="author-info">
+                        <h4>Jane D.</h4>
+                        <p>Member since 2025</p>
                     </div>
                 </div>
-
-                <div class="pro-card p-10 rounded-3xl relative">
-                    <i class="fa-solid fa-quote-left text-blue-600 text-4xl absolute -top-5 left-8"></i>
-                    <p class="italic text-gray-300 text-lg leading-relaxed mb-10 mt-4">"I've earned over $200 in gift cards in just a few months!"</p>
-                    <div class="flex items-center gap-4 pt-6 border-t border-gray-800">
-                        <div class="w-14 h-14 rounded-full bg-green-600 flex items-center justify-center font-bold text-xl text-white shadow-lg">MS</div>
-                        <div><p class="font-bold text-lg text-white">Mark S.</p><p class="text-sm text-gray-500">Member since 2024</p></div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    I've earned over $200 in gift cards in just a few months!
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MS</div>
+                    <div class="author-info">
+                        <h4>Mark S.</h4>
+                        <p>Member since 2026</p>
                     </div>
                 </div>
-
-                <div class="pro-card p-10 rounded-3xl relative">
-                    <i class="fa-solid fa-quote-left text-blue-600 text-4xl absolute -top-5 left-8"></i>
-                    <p class="italic text-gray-300 text-lg leading-relaxed mb-10 mt-4">"Best rewards platform I've used. Highly recommend!"</p>
-                    <div class="flex items-center gap-4 pt-6 border-t border-gray-800">
-                        <div class="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center font-bold text-xl text-white shadow-lg">LT</div>
-                        <div><p class="font-bold text-lg text-white">Lisa T.</p><p class="text-sm text-gray-500">Member since 2023</p></div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    Best rewards platform I've used. Highly recommend!
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">LT</div>
+                    <div class="author-info">
+                        <h4>Lisa T.</h4>
+                        <p>Member since 2026</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="py-32 max-w-4xl mx-auto px-6">
-        <h2 class="text-4xl font-bold tracking-tight text-center text-white mb-16">Frequently Asked Questions</h2>
-        <div class="space-y-6">
-            <details class="group pro-card rounded-2xl p-8 cursor-pointer">
-                <summary class="list-none font-bold text-xl text-white flex justify-between items-center">
-                    How do I earn points safely?
-                    <i class="fa-solid fa-plus text-blue-500 group-open:text-purple-500 transition-transform"></i>
-                </summary>
-                <p class="mt-6 text-gray-400 leading-relaxed text-lg border-t border-gray-800 pt-6">Complete secure tasks like verified surveys, official app installs, and watching partner videos. Points are credited instantly to your secure Pro dashboard.</p>
-            </details>
-            <details class="group pro-card rounded-2xl p-8 cursor-pointer">
-                <summary class="list-none font-bold text-xl text-white flex justify-between items-center">
-                    Are there any hidden fees?
-                    <i class="fa-solid fa-plus text-blue-500 group-open:text-purple-500 transition-transform"></i>
-                </summary>
-                <p class="mt-6 text-gray-400 leading-relaxed text-lg border-t border-gray-800 pt-6">No. NeoPrizes PRO is completely free to join and use. We generate revenue from our partners, meaning you never pay a dime to earn rewards.</p>
-            </details>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I earn points?</div>
+            <div class="faq-answer">Complete tasks like surveys, app installs, and video watching. Points are credited instantly.</div>
         </div>
-    </section>
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is it free to join?</div>
+            <div class="faq-answer">Yes! Signing up and participating is completely free.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I redeem my rewards?</div>
+            <div class="faq-answer">Visit the Rewards section, choose your reward, and confirm. Most delivered within 24-48 hours.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What payment methods are available?</div>
+            <div class="faq-answer">PayPal cash, Amazon cards, gaming credits, Walmart cards, and more.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How does the referral program work?</div>
+            <div class="faq-answer">Share your code. When friends sign up and complete tasks, both earn bonus points!</div>
+        </div>
 
-    <div id="authModal" class="modal fixed inset-0 z-[200] items-center justify-center p-4">
-        <div class="bg-[#0a0a0a] w-full max-w-xl rounded-3xl p-12 border border-gray-800 shadow-2xl relative">
-            <button onclick="toggleModal()" class="absolute top-8 right-8 text-gray-600 hover:text-white text-2xl transition"><i class="fa-solid fa-xmark"></i></button>
-            <h2 class="text-4xl font-bold tracking-tighter text-white mb-3">Initialize Earning</h2>
-            <p class="text-gray-400 mb-10 text-lg">Create your secure Pro account to access premium offers.</p>
-            
-            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Initialization successful! Welcome, Bro.');">
-                <input type="email" placeholder="Professional Email Address" class="w-full px-6 py-5 rounded-2xl bg-gray-900 border border-gray-800 text-white outline-none focus:border-blue-500 text-lg transition" required>
-                <input type="password" placeholder="Secure Password" class="w-full px-6 py-5 rounded-2xl bg-gray-900 border border-gray-800 text-white outline-none focus:border-blue-500 text-lg transition" required>
-                <button class="w-full btn-premium text-white py-5 rounded-2xl font-bold shadow-lg mt-6 text-xl">Activate Pro Account</button>
-            </form>
+        <div class="footer-cta">
+            <h2>Ready to Start Earning?</h2>
+            <p style="margin: 1rem 0">Join thousands earning rewards daily. Sign up in minutes!</p>
+            <button class="btn-cta" onclick="alert('Create Free Account')">Create Free Account →</button>
         </div>
     </div>
 
     <script>
-        function toggleModal() {
-            const modal = document.getElementById('authModal');
-            modal.classList.toggle('active');
-            document.body.style.overflow = modal.classList.contains('active') ? 'hidden' : 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                toggleModal();
-            }
-        }
+        // Smooth FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+        
+        console.log('Page loaded successfully!');
     </script>
 </body>
 </html>
-
-
