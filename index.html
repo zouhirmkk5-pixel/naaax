@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoPrizes Pro Max | Deep Black</title>
+    <title>NeoPrizes Pro Max | Elite Rewards</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -24,7 +24,15 @@
         .premium-card:hover {
             border-color: #3b82f6;
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+        }
+
+        .img-slot {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
         }
 
         .btn-glow {
@@ -33,6 +41,9 @@
 
         .modal { display: none; }
         .modal.active { display: flex; }
+        
+        /* Ensures logos look good on black */
+        .white-logo { filter: brightness(0) invert(1); }
     </style>
 </head>
 <body>
@@ -40,50 +51,77 @@
     <nav class="fixed w-full top-0 z-[100] bg-black/80 backdrop-blur-xl border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(37,99,235,0.5)]">
                     <i class="fa-solid fa-bolt text-white"></i>
                 </div>
-                <span class="text-xl font-extrabold tracking-tighter">NEOPRIZES <span class="text-blue-500 italic">PRO</span></span>
+                <span class="text-xl font-extrabold tracking-tighter uppercase">NeoPrizes <span class="text-blue-500">Pro Max</span></span>
             </div>
-            <button onclick="openLogin()" class="btn-glow text-white px-7 py-2.5 rounded-xl font-bold">Login</button>
+            <button onclick="openLogin()" class="btn-glow text-white px-7 py-2.5 rounded-xl font-bold shadow-lg">Login</button>
         </div>
     </nav>
 
     <section class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16">
-            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Redeem <span class="text-blue-500">Rewards</span></h1>
-            <p class="text-gray-500 text-lg">Pro Max design with instant delivery.</p>
+            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Premium <span class="text-blue-500">Vault</span></h1>
+            <p class="text-gray-500 text-lg">Gaming, Fashion, and Cash Rewards.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <div class="premium-card p-8 rounded-[2.5rem]">
-                <div class="h-24 flex justify-center items-center mb-6">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-12 w-auto" alt="PayPal">
+                <div class="img-slot">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png" class="h-16 w-auto" alt="Fortnite">
                 </div>
-                <h3 class="text-2xl font-bold text-center">PayPal $5 USD</h3>
-                <p class="text-blue-500 font-bold text-center mb-8">500 Points</p>
+                <h3 class="text-xl font-bold text-center mt-4">Fortnite 1000 V-Bucks</h3>
+                <p class="text-blue-500 font-bold text-center mb-8">1,200 Points</p>
                 <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
             </div>
 
             <div class="premium-card p-8 rounded-[2.5rem]">
-                <div class="h-24 flex justify-center items-center mb-6">
-                    <svg class="h-12" viewBox="0 0 167.3 43.6" xmlns="http://www.w3.org/2000/svg">
+                <div class="img-slot">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" class="h-16 w-auto white-logo" alt="Roblox">
+                </div>
+                <h3 class="text-xl font-bold text-center mt-4">Roblox $10 Gift Card</h3>
+                <p class="text-blue-500 font-bold text-center mb-8">1,000 Points</p>
+                <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
+            </div>
+
+            <div class="premium-card p-8 rounded-[2.5rem]">
+                <div class="img-slot">
+                    <svg class="h-10" viewBox="0 0 167.3 43.6" xmlns="http://www.w3.org/2000/svg">
                         <path fill="#FFC220" d="M153.2 21.8l14.1-8.1-2.9-5-14.1 8.1V0h-5.8v16.7l-14.1-8.1-2.9 5 14.1 8.1-14.1 8.1 2.9 5 14.1-8.1v16.7h5.8V26.9l14.1 8.1 2.9-5-14.1-8.2z"/>
                         <path fill="#0071CE" d="M12.4 33.6L5.3 11.2h6.1l4 14.2 4-14.2h5.8l4 14.2 4-14.2h6.1l-7.2 22.4H22l-3.9-14-3.9 14h-1.8zm37.2-2.1c-2.2 2.5-5.3 3.1-7.8 3.1-5.7 0-10.2-4.1-10.2-10.6 0-6.1 4.3-11.1 11-11.1 2.9 0 5.8 1 7.6 3.1l-3.2 3.4c-1.1-1.3-2.6-1.9-4.3-1.9-3.3 0-5.3 2.6-5.3 6.1 0 3.7 2.1 6.1 4.9 6.1 1.9 0 3.4-.8 4.4-2.1l2.9 3.9zm13.1 2.1V0h5.8v33.6h-5.8zm11-22.4h5.4v3.1c1.3-2.1 3.4-3.6 6.1-3.6 4.3 0 7 2.9 7 7.7v15.2h-5.8V19.1c0-2.5-1.3-3.6-3.2-3.6-2.1 0-3.7 1.6-3.7 4.5v13.6h-5.8V11.2zm36.8 0h5.4v3.1c1.3-2.1 3.4-3.6 6.1-3.6 4.3 0 7 2.9 7 7.7v15.2h-5.8V19.1c0-2.5-1.3-3.6-3.2-3.6-2.1 0-3.7 1.6-3.7 4.5v13.6h-5.8V11.2z"/>
                     </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-center">$10 Walmart Card</h3>
+                <h3 class="text-xl font-bold text-center mt-4">Walmart $10 Card</h3>
                 <p class="text-blue-500 font-bold text-center mb-8">1,000 Points</p>
                 <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
             </div>
 
             <div class="premium-card p-8 rounded-[2.5rem]">
-                <div class="h-24 flex justify-center items-center mb-6">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" class="h-12 w-auto invert" alt="Roblox">
+                <div class="img-slot">
+                    <span class="text-4xl font-black tracking-[0.2em] text-white">SHEIN</span>
                 </div>
-                <h3 class="text-2xl font-bold text-center">Roblox $10 Card</h3>
-                <p class="text-blue-500 font-bold text-center mb-8">1,000 Points</p>
+                <h3 class="text-xl font-bold text-center mt-4">SHEIN $25 Gift Card</h3>
+                <p class="text-blue-500 font-bold text-center mb-8">2,500 Points</p>
+                <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
+            </div>
+
+            <div class="premium-card p-8 rounded-[2.5rem]">
+                <div class="img-slot">
+                   <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Temu_logo.svg" class="h-10 w-auto" alt="Temu">
+                </div>
+                <h3 class="text-xl font-bold text-center mt-4">TEMU $20 Credit</h3>
+                <p class="text-blue-500 font-bold text-center mb-8">2,000 Points</p>
+                <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
+            </div>
+
+            <div class="premium-card p-8 rounded-[2.5rem]">
+                <div class="img-slot">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-10 w-auto" alt="PayPal">
+                </div>
+                <h3 class="text-xl font-bold text-center mt-4">PayPal $50 Cash</h3>
+                <p class="text-blue-500 font-bold text-center mb-8">5,000 Points</p>
                 <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
             </div>
 
@@ -91,16 +129,17 @@
     </section>
 
     <div id="loginModal" class="modal fixed inset-0 z-[200] items-center justify-center bg-black/90 backdrop-blur-md p-4">
-        <div class="bg-[#0a0a0a] w-full max-w-md rounded-[2.5rem] p-10 border border-white/10 relative">
+        <div class="bg-[#0a0a0a] w-full max-w-md rounded-[2.5rem] p-10 border border-white/10 relative shadow-[0_0_50px_rgba(37,99,235,0.2)]">
             <button onclick="closeLogin()" class="absolute top-8 right-8 text-gray-500 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <h2 class="text-3xl font-bold text-center mb-8">Pro Login</h2>
+            <h2 class="text-3xl font-bold text-center mb-8">Pro Authentication</h2>
             <div class="space-y-4">
-                <button onclick="mockLogin()" class="w-full flex items-center justify-center gap-3 bg-white text-black py-4 rounded-2xl font-bold">
+                <button onclick="mockLogin()" class="w-full flex items-center justify-center gap-3 bg-white text-black py-4 rounded-2xl font-bold hover:bg-gray-200 transition">
                     <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" class="w-5 h-5">
                     Continue with Google
                 </button>
-                <input type="email" placeholder="Email Address" class="w-full bg-white/5 border border-white/10 py-4 px-6 rounded-2xl outline-none focus:border-blue-500 transition">
-                <button onclick="mockLogin()" class="w-full btn-glow text-white py-4 rounded-2xl font-bold">Sign In</button>
+                <div class="flex items-center py-2"><div class="flex-grow border-t border-white/10"></div><span class="px-3 text-xs text-gray-600">OR</span><div class="flex-grow border-t border-white/10"></div></div>
+                <input type="email" placeholder="Email Address" class="w-full bg-white/5 border border-white/10 py-4 px-6 rounded-2xl outline-none focus:border-blue-500 transition text-white">
+                <button onclick="mockLogin()" class="w-full btn-glow text-white py-4 rounded-2xl font-bold shadow-lg">Sign In</button>
             </div>
         </div>
     </div>
@@ -120,16 +159,16 @@
 
         function mockLogin() {
             isLoggedIn = true;
-            alert("Login Successful.");
+            alert("Verification Complete. Access Granted.");
             closeLogin();
         }
 
         function handleRedeem() {
             if (!isLoggedIn) {
-                alert("Login required for rewards.");
+                alert("Authorization Required: Please login to verify points.");
                 openLogin();
             } else {
-                alert("Processing your points...");
+                alert("Request Sent: Our team will verify your points and deliver the card within 24 hours.");
             }
         }
     </script>
