@@ -24,7 +24,7 @@
         .premium-card:hover {
             border-color: #3b82f6;
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
         }
 
         .img-slot {
@@ -42,7 +42,6 @@
         .modal { display: none; }
         .modal.active { display: flex; }
         
-        /* Ensures logos look good on black */
         .white-logo { filter: brightness(0) invert(1); }
     </style>
 </head>
@@ -62,33 +61,15 @@
 
     <section class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16">
-            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Premium <span class="text-blue-500">Vault</span></h1>
-            <p class="text-gray-500 text-lg">Gaming, Fashion, and Cash Rewards.</p>
+            <h1 class="text-5xl font-extrabold mb-4 tracking-tight text-white">Elite <span class="text-blue-500">Vault</span></h1>
+            <p class="text-gray-500 text-lg">Verified Rewards. Delivered Instantly.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <div class="premium-card p-8 rounded-[2.5rem]">
                 <div class="img-slot">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png" class="h-16 w-auto" alt="Fortnite">
-                </div>
-                <h3 class="text-xl font-bold text-center mt-4">Fortnite 1000 V-Bucks</h3>
-                <p class="text-blue-500 font-bold text-center mb-8">1,200 Points</p>
-                <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
-            </div>
-
-            <div class="premium-card p-8 rounded-[2.5rem]">
-                <div class="img-slot">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" class="h-16 w-auto white-logo" alt="Roblox">
-                </div>
-                <h3 class="text-xl font-bold text-center mt-4">Roblox $10 Gift Card</h3>
-                <p class="text-blue-500 font-bold text-center mb-8">1,000 Points</p>
-                <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
-            </div>
-
-            <div class="premium-card p-8 rounded-[2.5rem]">
-                <div class="img-slot">
-                    <svg class="h-10" viewBox="0 0 167.3 43.6" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="h-10 w-auto" viewBox="0 0 167 44" xmlns="http://www.w3.org/2000/svg">
                         <path fill="#FFC220" d="M153.2 21.8l14.1-8.1-2.9-5-14.1 8.1V0h-5.8v16.7l-14.1-8.1-2.9 5 14.1 8.1-14.1 8.1 2.9 5 14.1-8.1v16.7h5.8V26.9l14.1 8.1 2.9-5-14.1-8.2z"/>
                         <path fill="#0071CE" d="M12.4 33.6L5.3 11.2h6.1l4 14.2 4-14.2h5.8l4 14.2 4-14.2h6.1l-7.2 22.4H22l-3.9-14-3.9 14h-1.8zm37.2-2.1c-2.2 2.5-5.3 3.1-7.8 3.1-5.7 0-10.2-4.1-10.2-10.6 0-6.1 4.3-11.1 11-11.1 2.9 0 5.8 1 7.6 3.1l-3.2 3.4c-1.1-1.3-2.6-1.9-4.3-1.9-3.3 0-5.3 2.6-5.3 6.1 0 3.7 2.1 6.1 4.9 6.1 1.9 0 3.4-.8 4.4-2.1l2.9 3.9zm13.1 2.1V0h5.8v33.6h-5.8zm11-22.4h5.4v3.1c1.3-2.1 3.4-3.6 6.1-3.6 4.3 0 7 2.9 7 7.7v15.2h-5.8V19.1c0-2.5-1.3-3.6-3.2-3.6-2.1 0-3.7 1.6-3.7 4.5v13.6h-5.8V11.2zm36.8 0h5.4v3.1c1.3-2.1 3.4-3.6 6.1-3.6 4.3 0 7 2.9 7 7.7v15.2h-5.8V19.1c0-2.5-1.3-3.6-3.2-3.6-2.1 0-3.7 1.6-3.7 4.5v13.6h-5.8V11.2z"/>
                     </svg>
@@ -100,19 +81,32 @@
 
             <div class="premium-card p-8 rounded-[2.5rem]">
                 <div class="img-slot">
-                    <span class="text-4xl font-black tracking-[0.2em] text-white">SHEIN</span>
+                    <svg class="h-10 w-auto" viewBox="0 0 242 80" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#FF6001" d="M0 10C0 4.477 4.477 0 10 0h60c5.523 0 10 4.477 10 10v60c0 5.523-4.477 10-10 10H10C4.477 80 0 75.523 0 70V10z"/>
+                        <path d="M19.5 45.4c0-4.3 3.5-7.8 7.8-7.8h25.4c4.3 0 7.8 3.5 7.8 7.8V58c0 1.5-1.2 2.7-2.7 2.7h-3.3c-1.5 0-2.7-1.2-2.7-2.7v-9.3c0-.6-.5-1.1-1.1-1.1H29.1c-.6 0-1.1.5-1.1 1.1v9.3c0 1.5-1.2 2.7-2.7 2.7h-3.1c-1.5 0-2.7-1.2-2.7-2.7V45.4z" fill="#FFF"/>
+                        <text x="90" y="55" font-family="Arial" font-weight="900" font-size="45" fill="#FF6001">TEMU</text>
+                    </svg>
                 </div>
-                <h3 class="text-xl font-bold text-center mt-4">SHEIN $25 Gift Card</h3>
-                <p class="text-blue-500 font-bold text-center mb-8">2,500 Points</p>
+                <h3 class="text-xl font-bold text-center mt-4">TEMU $20 Credit</h3>
+                <p class="text-blue-500 font-bold text-center mb-8">2,000 Points</p>
                 <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
             </div>
 
             <div class="premium-card p-8 rounded-[2.5rem]">
                 <div class="img-slot">
-                   <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Temu_logo.svg" class="h-10 w-auto" alt="Temu">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png" class="h-16 w-auto" alt="Fortnite">
                 </div>
-                <h3 class="text-xl font-bold text-center mt-4">TEMU $20 Credit</h3>
-                <p class="text-blue-500 font-bold text-center mb-8">2,000 Points</p>
+                <h3 class="text-xl font-bold text-center mt-4">1000 V-Bucks</h3>
+                <p class="text-blue-500 font-bold text-center mb-8">1,200 Points</p>
+                <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
+            </div>
+
+            <div class="premium-card p-8 rounded-[2.5rem]">
+                <div class="img-slot">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" class="h-16 w-auto white-logo" alt="Roblox">
+                </div>
+                <h3 class="text-xl font-bold text-center mt-4">Roblox $10 Card</h3>
+                <p class="text-blue-500 font-bold text-center mb-8">1,000 Points</p>
                 <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
             </div>
 
@@ -125,21 +119,29 @@
                 <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
             </div>
 
+            <div class="premium-card p-8 rounded-[2.5rem]">
+                <div class="img-slot">
+                    <span class="text-4xl font-black tracking-[0.2em] text-white">SHEIN</span>
+                </div>
+                <h3 class="text-xl font-bold text-center mt-4">SHEIN $25 Card</h3>
+                <p class="text-blue-500 font-bold text-center mb-8">2,500 Points</p>
+                <button onclick="handleRedeem()" class="w-full py-4 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition">Redeem Now</button>
+            </div>
+
         </div>
     </section>
 
     <div id="loginModal" class="modal fixed inset-0 z-[200] items-center justify-center bg-black/90 backdrop-blur-md p-4">
-        <div class="bg-[#0a0a0a] w-full max-w-md rounded-[2.5rem] p-10 border border-white/10 relative shadow-[0_0_50px_rgba(37,99,235,0.2)]">
+        <div class="bg-[#0a0a0a] w-full max-w-md rounded-[2.5rem] p-10 border border-white/10 relative">
             <button onclick="closeLogin()" class="absolute top-8 right-8 text-gray-500 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
-            <h2 class="text-3xl font-bold text-center mb-8">Pro Authentication</h2>
+            <h2 class="text-3xl font-bold text-center mb-8">Secure Login</h2>
             <div class="space-y-4">
-                <button onclick="mockLogin()" class="w-full flex items-center justify-center gap-3 bg-white text-black py-4 rounded-2xl font-bold hover:bg-gray-200 transition">
+                <button onclick="mockLogin()" class="w-full flex items-center justify-center gap-3 bg-white text-black py-4 rounded-2xl font-bold">
                     <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" class="w-5 h-5">
                     Continue with Google
                 </button>
-                <div class="flex items-center py-2"><div class="flex-grow border-t border-white/10"></div><span class="px-3 text-xs text-gray-600">OR</span><div class="flex-grow border-t border-white/10"></div></div>
                 <input type="email" placeholder="Email Address" class="w-full bg-white/5 border border-white/10 py-4 px-6 rounded-2xl outline-none focus:border-blue-500 transition text-white">
-                <button onclick="mockLogin()" class="w-full btn-glow text-white py-4 rounded-2xl font-bold shadow-lg">Sign In</button>
+                <button onclick="mockLogin()" class="w-full btn-glow text-white py-4 rounded-2xl font-bold">Sign In</button>
             </div>
         </div>
     </div>
@@ -159,16 +161,16 @@
 
         function mockLogin() {
             isLoggedIn = true;
-            alert("Verification Complete. Access Granted.");
+            alert("Verification Complete.");
             closeLogin();
         }
 
         function handleRedeem() {
             if (!isLoggedIn) {
-                alert("Authorization Required: Please login to verify points.");
+                alert("Login Required: Please verify your account to redeem points.");
                 openLogin();
             } else {
-                alert("Request Sent: Our team will verify your points and deliver the card within 24 hours.");
+                alert("Redemption Request Sent! Your gift card will be emailed to your Google account within 24 hours.");
             }
         }
     </script>
