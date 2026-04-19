@@ -3,132 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoPrizes Clone | Earn Rewards Today</title>
+    <title>NeoPrizes | Premium Rewards Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .hero-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        
+        :root {
+            --brand-primary: #3b82f6;
+            --brand-secondary: #8b5cf6;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-mesh {
+            background-color: #ffffff;
+            background-image: radial-gradient(at 0% 0%, hsla(210,100%,93%,1) 0, transparent 50%), 
+                              radial-gradient(at 50% 0%, hsla(225,100%,93%,1) 0, transparent 50%), 
+                              radial-gradient(at 100% 0%, hsla(240,100%,93%,1) 0, transparent 50%);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Modal Animation */
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            display: none;
+        }
+        .modal.active {
+            display: flex;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="hero-mesh text-slate-900">
 
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold text-blue-600">NeoPrizes</span>
+    <nav class="glass fixed w-full top-0 z-[100] border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 btn-gradient rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-bolt text-white"></i>
                 </div>
-                <div class="hidden md:flex space-x-8 font-medium">
-                    <a href="#features" class="hover:text-blue-600">Features</a>
-                    <a href="#how-it-works" class="hover:text-blue-600">How It Works</a>
-                    <a href="#rewards" class="hover:text-blue-600">Rewards</a>
-                </div>
-                <div class="flex space-x-4">
-                    <button class="text-gray-600 font-semibold px-4 py-2">Login</button>
-                    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">Get Started</button>
-                </div>
+                <span class="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
+                    NeoPrizes
+                </span>
+            </div>
+            
+            <div class="hidden md:flex space-x-10 font-semibold text-slate-600">
+                <a href="#how" class="hover:text-blue-600 transition">How it Works</a>
+                <a href="#rewards" class="hover:text-blue-600 transition">Rewards</a>
+                <a href="#faq" class="hover:text-blue-600 transition">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleModal('loginModal')" class="hidden sm:block font-bold text-slate-700 hover:text-blue-600 transition">Login</button>
+                <button onclick="toggleModal('signupModal')" class="btn-gradient text-white px-7 py-3 rounded-2xl font-bold shadow-md">
+                    Get Started
+                </button>
             </div>
         </div>
     </nav>
 
-    <header class="hero-gradient text-white py-20 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Turn Your Time Into <br><span class="text-blue-200">Real Rewards</span></h1>
-            <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">Complete simple tasks, surveys, and offers to earn points. Redeem them for PayPal cash, gift cards, and more.</p>
+    <section class="pt-40 pb-20 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 px-4 py-2 rounded-full text-blue-700 text-sm font-bold mb-8">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                Live: 1,240 users earning right now
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-tight">
+                The Smartest Way to <br/>
+                <span class="text-blue-600">Earn Online Rewards</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Join 50,000+ members earning gift cards and cash daily by completing simple offers and surveys.
+            </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="bg-white text-blue-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 shadow-lg">Start Earning Now</button>
-                <button class="border-2 border-white/30 backdrop-blur-sm px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10">Learn More</button>
+                <button onclick="toggleModal('signupModal')" class="btn-gradient text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl">
+                    Claim Your First Reward
+                </button>
             </div>
+        </div>
+    </section>
+
+    <section id="rewards" class="py-24 px-6 bg-white/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Popular Payouts</h2>
+                <p class="text-slate-500">Real rewards delivered within 24 hours.</p>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 transition-all group">
+                    <div class="h-16 flex items-center justify-center mb-6 grayscale group-hover:grayscale-0 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-10">
+                    </div>
+                    <h3 class="font-bold text-center">$5.00 Cash</h3>
+                    <p class="text-center text-blue-600 text-sm font-bold mt-2">5,000 Pts</p>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal fixed inset-0 z-[200] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl p-8 shadow-2xl relative">
+            <button onclick="toggleModal('loginModal')" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 class="text-2xl font-extrabold mb-2">Welcome Back</h2>
+            <p class="text-slate-500 mb-8">Sign in to continue earning.</p>
             
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/20 pt-10">
-                <div><p class="text-3xl font-bold">25K+</p><p class="text-blue-100">Points Earned</p></div>
-                <div><p class="text-3xl font-bold">3,500+</p><p class="text-blue-100">Active Users</p></div>
-                <div><p class="text-3xl font-bold">$10K+</p><p class="text-blue-100">Paid Out</p></div>
-                <div><p class="text-3xl font-bold">24/7</p><p class="text-blue-100">Support</p></div>
-            </div>
+            <form onsubmit="event.preventDefault(); alert('Login logic goes here!');" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold mb-2">Email Address</label>
+                    <input type="email" placeholder="name@example.com" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none transition" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-2">Password</label>
+                    <input type="password" placeholder="••••••••" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none transition" required>
+                </div>
+                <button type="submit" class="w-full btn-gradient text-white py-4 rounded-xl font-bold mt-4 shadow-lg">Sign In</button>
+            </form>
         </div>
-    </header>
+    </div>
 
-    <section id="how-it-works" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-12">Start Earning in 3 Simple Steps</h2>
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">01</div>
-                    <h3 class="text-xl font-bold mb-3">Create Account</h3>
-                    <p class="text-gray-600">Sign up for free in under a minute with your email or social media.</p>
+    <div id="signupModal" class="modal fixed inset-0 z-[200] items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+        <div class="bg-white w-full max-w-md rounded-3xl p-8 shadow-2xl relative">
+            <button onclick="toggleModal('signupModal')" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 class="text-2xl font-extrabold mb-2">Create Account</h2>
+            <p class="text-slate-500 mb-8">Start earning in less than 60 seconds.</p>
+            
+            <form onsubmit="event.preventDefault(); alert('Sign up logic goes here!');" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">First Name</label>
+                        <input type="text" placeholder="John" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Last Name</label>
+                        <input type="text" placeholder="Doe" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none" required>
+                    </div>
                 </div>
-                <div class="p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">02</div>
-                    <h3 class="text-xl font-bold mb-3">Complete Tasks</h3>
-                    <p class="text-gray-600">Browse offers, watch videos, or take surveys from our premium partners.</p>
+                <div>
+                    <label class="block text-sm font-bold mb-2">Email Address</label>
+                    <input type="email" placeholder="name@example.com" class="w-full px-4 py-4 rounded-xl border border-slate-200 focus:border-blue-500 outline-none" required>
                 </div>
-                <div class="p-6">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">03</div>
-                    <h3 class="text-xl font-bold mb-3">Redeem Rewards</h3>
-                    <p class="text-gray-600">Convert your points into PayPal cash or your favorite gift cards instantly.</p>
-                </div>
-            </div>
+                <button type="submit" class="w-full btn-gradient text-white py-4 rounded-xl font-bold mt-4 shadow-lg">Join NeoPrizes</button>
+            </form>
         </div>
-    </section>
+    </div>
 
-    <section id="rewards" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Popular Rewards</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-12 mx-auto mb-4" alt="PayPal">
-                    <h4 class="font-bold">$5.00 PayPal</h4>
-                    <p class="text-blue-600 font-semibold text-sm">500 Points</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.svg" class="h-12 mx-auto mb-4" alt="Amazon">
-                    <h4 class="font-bold">$10 Amazon</h4>
-                    <p class="text-blue-600 font-semibold text-sm">1,000 Points</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
-                    <i class="fa-brands fa-google-play text-4xl text-green-500 mb-4 block"></i>
-                    <h4 class="font-bold">$10 Google Play</h4>
-                    <p class="text-blue-600 font-semibold text-sm">1,000 Points</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
-                    <i class="fa-brands fa-xbox text-4xl text-green-600 mb-4 block"></i>
-                    <h4 class="font-bold">$15 Xbox Live</h4>
-                    <p class="text-blue-600 font-semibold text-sm">1,500 Points</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        // Modal Control Function
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            } else {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Disable scrolling when modal is open
+            }
+        }
 
-    <footer class="bg-gray-900 text-white py-12 px-4">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
-            <div class="col-span-1 md:col-span-2">
-                <span class="text-2xl font-bold text-blue-400">NeoPrizes</span>
-                <p class="mt-4 text-gray-400 max-w-sm">The world's most trusted rewards platform. Earn points for your daily online activities.</p>
-            </div>
-            <div>
-                <h5 class="font-bold mb-4">Quick Links</h5>
-                <ul class="text-gray-400 space-y-2">
-                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-white">Terms of Service</a></li>
-                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold mb-4">Social</h5>
-                <div class="flex space-x-4 text-2xl">
-                    <a href="#"><i class="fa-brands fa-twitter hover:text-blue-400"></i></a>
-                    <a href="#"><i class="fa-brands fa-discord hover:text-blue-400"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-gray-500 text-sm">
-            © 2026 NeoPrizes. Not affiliated with Google, PayPal, or Amazon.
-        </div>
-    </footer>
+        // Close modal when clicking outside of the white box
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
 
 </body>
 </html>
-
