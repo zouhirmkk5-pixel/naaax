@@ -3,445 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Brand - Earn Rewards Easily</title>
+    <title>NeoPrizes Clone | Earn Rewards Today</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #1a1a2e;
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(255,255,255,0.95);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-nav {
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .btn-login {
-            color: #667eea;
-            border: 2px solid #667eea;
-        }
-
-        .btn-signup {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero .highlight {
-            background: linear-gradient(135deg, #ffd89b, #c7e9fb);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-cta {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            background: white;
-            color: #667eea;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: transform 0.2s;
-        }
-
-        .btn-cta:hover {
-            transform: scale(1.05);
-        }
-
-        /* Stats Section */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            padding: 2rem;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            margin: 2rem auto;
-            max-width: 900px;
-            border-radius: 20px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            color: white;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Features */
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            color: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        /* How It Works */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .step {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1rem;
-        }
-
-        /* Rewards */
-        .rewards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .reward-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .reward-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .reward-points {
-            color: #667eea;
-            font-weight: bold;
-            margin-top: 0.5rem;
-        }
-
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .testimonial {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            font-style: italic;
-        }
-
-        /* FAQ */
-        .faq-item {
-            background: white;
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1rem;
-            background: #f5f5f5;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .faq-answer {
-            padding: 0 1rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 1rem;
-            max-height: 200px;
-        }
-
-        /* Footer CTA */
-        .footer-cta {
-            text-align: center;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            margin-top: 3rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .stats {
-                gap: 1.5rem;
-            }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
     </style>
 </head>
-<body>
-    <nav>
-        <div class="logo">YourBrand</div>
-        <div class="nav-buttons">
-            <a href="#" class="btn-nav btn-login">Login</a>
-            <a href="#" class="btn-nav btn-signup">Sign Up</a>
+<body class="bg-gray-50 text-gray-900">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-600">NeoPrizes</span>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#features" class="hover:text-blue-600">Features</a>
+                    <a href="#how-it-works" class="hover:text-blue-600">How It Works</a>
+                    <a href="#rewards" class="hover:text-blue-600">Rewards</a>
+                </div>
+                <div class="flex space-x-4">
+                    <button class="text-gray-600 font-semibold px-4 py-2">Login</button>
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">Get Started</button>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <div class="hero">
-        <h1>Turn Your Time Into <span class="highlight">Real Rewards</span></h1>
-        <p>Complete simple tasks, surveys, and offers to earn points. Redeem them for gift cards, cash, and exclusive rewards from top brands.</p>
-        <button class="btn-cta" onclick="alert('Sign up form would open here')">Get Started Now →</button>
-    </div>
+    <header class="hero-gradient text-white py-20 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Turn Your Time Into <br><span class="text-blue-200">Real Rewards</span></h1>
+            <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">Complete simple tasks, surveys, and offers to earn points. Redeem them for PayPal cash, gift cards, and more.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-white text-blue-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 shadow-lg">Start Earning Now</button>
+                <button class="border-2 border-white/30 backdrop-blur-sm px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10">Learn More</button>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/20 pt-10">
+                <div><p class="text-3xl font-bold">25K+</p><p class="text-blue-100">Points Earned</p></div>
+                <div><p class="text-3xl font-bold">3,500+</p><p class="text-blue-100">Active Users</p></div>
+                <div><p class="text-3xl font-bold">$10K+</p><p class="text-blue-100">Paid Out</p></div>
+                <div><p class="text-3xl font-bold">24/7</p><p class="text-blue-100">Support</p></div>
+            </div>
+        </div>
+    </header>
 
-    <div class="stats">
-        <div class="stat-item">
-            <div class="stat-number">10,000+</div>
-            <div>Active Users</div>
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-12">Start Earning in 3 Simple Steps</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">01</div>
+                    <h3 class="text-xl font-bold mb-3">Create Account</h3>
+                    <p class="text-gray-600">Sign up for free in under a minute with your email or social media.</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">02</div>
+                    <h3 class="text-xl font-bold mb-3">Complete Tasks</h3>
+                    <p class="text-gray-600">Browse offers, watch videos, or take surveys from our premium partners.</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">03</div>
+                    <h3 class="text-xl font-bold mb-3">Redeem Rewards</h3>
+                    <p class="text-gray-600">Convert your points into PayPal cash or your favorite gift cards instantly.</p>
+                </div>
+            </div>
         </div>
-        <div class="stat-item">
-            <div class="stat-number">50,000+</div>
-            <div>Points Earned</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">15+</div>
-            <div>Rewards Given</div>
-        </div>
-    </div>
+    </section>
 
-    <div class="container">
-        <h2 class="section-title">Why Choose Us?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Instant Points</h3>
-                <p>Complete tasks and see your points credited instantly.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📋</div>
-                <h3>Multiple Task Types</h3>
-                <p>Surveys, app installs, video watching, and exclusive offers.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Secure & Trusted</h3>
-                <p>Enterprise-grade security for your data protection.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎁</div>
-                <h3>Premium Rewards</h3>
-                <p>PayPal cash, Amazon cards, gaming credits, and more.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Referral Program</h3>
-                <p>Earn bonus points for every successful referral.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏆</div>
-                <h3>Leaderboard & Bonuses</h3>
-                <p>Compete weekly and earn extra rewards.</p>
+    <section id="rewards" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Popular Rewards</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="h-12 mx-auto mb-4" alt="PayPal">
+                    <h4 class="font-bold">$5.00 PayPal</h4>
+                    <p class="text-blue-600 font-semibold text-sm">500 Points</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.svg" class="h-12 mx-auto mb-4" alt="Amazon">
+                    <h4 class="font-bold">$10 Amazon</h4>
+                    <p class="text-blue-600 font-semibold text-sm">1,000 Points</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                    <i class="fa-brands fa-google-play text-4xl text-green-500 mb-4 block"></i>
+                    <h4 class="font-bold">$10 Google Play</h4>
+                    <p class="text-blue-600 font-semibold text-sm">1,000 Points</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-md transition">
+                    <i class="fa-brands fa-xbox text-4xl text-green-600 mb-4 block"></i>
+                    <h4 class="font-bold">$15 Xbox Live</h4>
+                    <p class="text-blue-600 font-semibold text-sm">1,500 Points</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <h2 class="section-title">How It Works</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Create Account</h3>
-                <p>Sign up for free in under a minute.</p>
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <span class="text-2xl font-bold text-blue-400">NeoPrizes</span>
+                <p class="mt-4 text-gray-400 max-w-sm">The world's most trusted rewards platform. Earn points for your daily online activities.</p>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Complete Tasks</h3>
-                <p>Browse and complete tasks at your pace.</p>
+            <div>
+                <h5 class="font-bold mb-4">Quick Links</h5>
+                <ul class="text-gray-400 space-y-2">
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                </ul>
             </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Redeem Rewards</h3>
-                <p>Exchange points for gift cards or cash.</p>
+            <div>
+                <h5 class="font-bold mb-4">Social</h5>
+                <div class="flex space-x-4 text-2xl">
+                    <a href="#"><i class="fa-brands fa-twitter hover:text-blue-400"></i></a>
+                    <a href="#"><i class="fa-brands fa-discord hover:text-blue-400"></i></a>
+                </div>
             </div>
         </div>
+        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+            © 2026 NeoPrizes. Not affiliated with Google, PayPal, or Amazon.
+        </div>
+    </footer>
 
-        <h2 class="section-title">Amazing Rewards Await</h2>
-        <div class="rewards-grid">
-            <div class="reward-card" onclick="alert('Redeem: PayPal $5')">
-                <h3>PayPal $5 USD</h3>
-                <div class="reward-points">500 points</div>
-            </div>
-            <div class="reward-card" onclick="alert('Redeem: $5 Walmart Gift Card')">
-                <h3>$5 Walmart Gift Card</h3>
-                <div class="reward-points">500 points</div>
-            </div>
-            <div class="reward-card" onclick="alert('Redeem: PayPal $10 USD')">
-                <h3>PayPal $10 USD</h3>
-                <div class="reward-points">1,000 points</div>
-            </div>
-            <div class="reward-card" onclick="alert('Redeem: Amazon $10 Gift Card')">
-                <h3>Amazon $10 Gift Card</h3>
-                <div class="reward-points">1,000 points</div>
-            </div>
-        </div>
-
-        <h2 class="section-title">What Our Users Say</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial">
-                "This platform has been amazing for earning extra cash in my spare time!"
-                <br><br>
-                <strong>- Sarah J.</strong>
-            </div>
-            <div class="testimonial">
-                "I've earned over $200 in gift cards in just a few months!"
-                <br><br>
-                <strong>- Michael T.</strong>
-            </div>
-            <div class="testimonial">
-                "Best rewards platform I've used. Highly recommend!"
-                <br><br>
-                <strong>- David L.</strong>
-            </div>
-        </div>
-
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I earn points?</div>
-            <div class="faq-answer">Complete tasks like surveys, app installs, and video watching. Points are credited instantly.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Is it free to join?</div>
-            <div class="faq-answer">Yes! Signing up and participating is completely free.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do I redeem my rewards?</div>
-            <div class="faq-answer">Visit the Rewards section, choose your reward, and confirm. Most delivered within 24-48 hours.</div>
-        </div>
-
-        <div class="footer-cta">
-            <h2>Ready to Start Earning?</h2>
-            <p style="margin: 1rem 0">Join thousands earning rewards daily. Sign up in minutes!</p>
-            <button class="btn-cta" onclick="alert('Create Free Account')">Create Free Account →</button>
-        </div>
-    </div>
-
-    <script>
-        // Add any interactive JavaScript here
-        console.log('Page loaded - ready for customization');
-        
-        // You can add point tracking, user authentication, etc.
-    </script>
 </body>
 </html>
+
